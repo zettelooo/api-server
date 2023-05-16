@@ -31,7 +31,7 @@
     "websocket": "^1.0.34"
   },
   "peerDependencies": {
-    "@zettelyay/api-types": "^2.4.0"
+    "@zettelyay/api-types": "^2.4.1"
   },
   "devDependencies": {
     "@types/websocket": "^1.0.5",
