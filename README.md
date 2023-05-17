@@ -5,7 +5,7 @@ API helper tools for server-side.
 ## Installation
 
 ```bash
-$ npm install @zettelyay/api-server
+$ npm install @zettelooo/api-server
 ```
 
 ## Development
@@ -14,7 +14,7 @@ Clone the repository locally:
 
 
 ```bash
-$ git clone https://github.com/zettelyay/api-server.git
+$ git clone https://github.com/zettelooo/api-server.git
 ```
 
 Install the dependencies:

@@ -1,4 +1,4 @@
-import { ZettelTypes } from '@zettelyay/api-types'
+import { ZettelTypes } from '@zettelooo/api-types'
 import axios from 'axios'
 import { apiConfig } from '../../apiConfig'
 

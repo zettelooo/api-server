@@ -1,4 +1,4 @@
-import { ZettelTypes } from '@zettelyay/api-types'
+import { ZettelTypes } from '@zettelooo/api-types'
 import { IMessageEvent, w3cwebsocket as WebSocket } from 'websocket'
 import { apiConfig } from '../../../apiConfig'
 
