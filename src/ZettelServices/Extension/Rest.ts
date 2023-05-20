@@ -1,4 +1,4 @@
-import { ZettelTypes } from '@zettelooo/api-types'
+import { ZettelTypes, version } from '@zettelooo/api-types'
 import axios from 'axios'
 import { apiConfig } from '../../apiConfig'
 
@@ -14,7 +14,7 @@ export class Rest<PD = any, CD = any> {
   private requestFactory<Request, Response>(endPoint: string): (request: Request) => Promise<Response> {
     return async request => {
       const response = await axios({
-        url: `${this.baseUrl}/rest/extension/${endPoint}`,
+        url: `${this.baseUrl}/${version}/rest/extension/${endPoint}`,
         method: 'POST',
         headers: {
           Authorization: `Key ${this.options.extensionAccessKey}`,
