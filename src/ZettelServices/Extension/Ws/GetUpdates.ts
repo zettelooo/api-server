@@ -56,7 +56,7 @@ export class GetUpdates<PD = any, CD = any, BD = any> {
       if (this.socket !== referencedSocket) return
       referencedSocket.send(
         GetUpdates.formatRequest({
-          type: ZettelTypes.Service.Extension.Ws.GetUpdates.Request.Type.Start,
+          type: ZettelTypes.Extension.Service.Ws.GetUpdates.Request.Type.Start,
           extensionAccessKey: this.options.extensionAccessKey,
         })
       )
@@ -67,11 +67,11 @@ export class GetUpdates<PD = any, CD = any, BD = any> {
       if (typeof event.data !== 'string') return
       const message = GetUpdates.parseResponse(event.data)
       switch (message.type) {
-        case ZettelTypes.Service.Extension.Ws.GetUpdates.Response.Type.Started:
+        case ZettelTypes.Extension.Service.Ws.GetUpdates.Response.Type.Started:
           this.setStatus(GetUpdates.Status.Started)
           break
 
-        case ZettelTypes.Service.Extension.Ws.GetUpdates.Response.Type.Mutation:
+        case ZettelTypes.Extension.Service.Ws.GetUpdates.Response.Type.Mutation:
           this.options.onMutation?.(message.mutation)
           break
       }
@@ -101,13 +101,13 @@ export class GetUpdates<PD = any, CD = any, BD = any> {
     }
   }
 
-  static formatRequest<T extends ZettelTypes.Service.Extension.Ws.GetUpdates.Request.Type>(
-    message: ZettelTypes.Service.Extension.Ws.GetUpdates.Request<T>
+  static formatRequest<T extends ZettelTypes.Extension.Service.Ws.GetUpdates.Request.Type>(
+    message: ZettelTypes.Extension.Service.Ws.GetUpdates.Request<T>
   ): string {
     return JSON.stringify(message)
   }
 
-  static parseResponse(message: string): ZettelTypes.Service.Extension.Ws.GetUpdates.Response {
+  static parseResponse(message: string): ZettelTypes.Extension.Service.Ws.GetUpdates.Response {
     return JSON.parse(message)
   }
 }
@@ -122,7 +122,7 @@ export namespace GetUpdates {
     readonly startInitially?: boolean
     readonly retryConnectionTimeoutMilliseconds?: number
     readonly onStatusChange?: (status: Status) => void
-    readonly onMutation?: (mutation: ZettelTypes.Service.Extension.Ws.GetUpdates.Response.Mutation<PD, CD, BD>) => void
+    readonly onMutation?: (mutation: ZettelTypes.Extension.Service.Ws.GetUpdates.Response.Mutation<PD, CD, BD>) => void
   }
 
   export enum Status {
