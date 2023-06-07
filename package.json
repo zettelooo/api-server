@@ -24,7 +24,7 @@
     "websocket": "^1.0.34"
   },
   "peerDependencies": {
-    "@zettelooo/api-types": "^4.4.0"
+    "@zettelooo/api-types": "^4.4.1"
   },
   "devDependencies": {
     "@types/websocket": "^1.0.5",
