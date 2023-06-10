@@ -2,12 +2,12 @@ import { ZettelTypes, version } from '@zettelooo/api-types'
 import { IMessageEvent, w3cwebsocket as WebSocket } from 'websocket'
 import { apiConfig } from '../../../apiConfig'
 
-export class GetUpdates<PD = any, CD = any, BD = any> {
+export class GetUpdates<PD = any, CD = any> {
   private socket?: WebSocket
   private status!: GetUpdates.Status
   private registrationKey?: string
 
-  constructor(private readonly options: GetUpdates.Options<PD, CD, BD>) {
+  constructor(private readonly options: GetUpdates.Options<PD, CD>) {
     this.setStatus(GetUpdates.Status.ClosedInitially)
   }
 
@@ -120,7 +120,7 @@ export class GetUpdates<PD = any, CD = any, BD = any> {
 }
 
 export namespace GetUpdates {
-  export interface Options<PD = any, CD = any, BD = any> {
+  export interface Options<PD = any, CD = any> {
     readonly extensionWsApi?: {
       readonly baseUrl?: string
       readonly targetEnvironment?: keyof typeof apiConfig.baseUrlsByTargetEnvironment
@@ -129,7 +129,7 @@ export namespace GetUpdates {
     readonly startInitially?: boolean
     readonly retryConnectionTimeoutMilliseconds?: number
     readonly onStatusChange?: (status: Status) => void
-    readonly onMutation?: (mutation: ZettelTypes.Extension.Service.Ws.GetUpdates.Response.Mutation<PD, CD, BD>) => void
+    readonly onMutation?: (mutation: ZettelTypes.Extension.Service.Ws.GetUpdates.Response.Mutation<PD, CD>) => void
   }
 
   export enum Status {
