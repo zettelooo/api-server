@@ -54,7 +54,7 @@ export namespace Ws {
       const baseUrl =
         this.options.wsApi?.baseUrl ||
         apiConfig.baseUrlsByTargetEnvironment[this.options.wsApi?.targetEnvironment ?? 'live'].ws
-      this.socket = new WebSocket(`${baseUrl}/${version}/ws/extension/get-updates`)
+      this.socket = new WebSocket(`${baseUrl}/${version}/ws/get-updates`)
       this.socket.binaryType = 'arraybuffer'
       const referencedSocket = this.socket!
 
